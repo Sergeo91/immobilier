@@ -1,0 +1,49 @@
+{
+  "Theme": {
+    "label": "Theme",
+    "dark": "Dark",
+    "light": "Light",
+    "luxury": "Luxury",
+    "business": "Business",
+    "corporate": "Corporate",
+    "coffee": "Coffee",
+    "cyberpunk": "Cyberpunk",
+    "highcontrast": "High contrast",
+    "system": "System"
+  },
+  "Nav": {
+    "home": "Achat Location",
+    "search": "Search",
+    "dashboard": "Dashboard",
+    "favorites": "Favorites",
+    "profile": "Profile",
+    "myProperties": "My properties",
+    "transactions": "Transactions",
+    "logout": "Log out",
+    "login": "Log in"
+  },
+  "Home": {
+    "title": "Achat Location",
+    "subtitle": "Secure global real estate platform. Plots, land, houses, apartments, rentals and sales.",
+    "searchButton": "Search property",
+    "secure": "Secure",
+    "secureDesc": "All transactions via the platform. Identity protected until validation.",
+    "global": "Global",
+    "globalDesc": "Properties worldwide. Multi-country, multi-language.",
+    "allTypes": "All types",
+    "allTypesDesc": "Land, house, apartment, room, commercial, hotel.",
+    "recent": "Recent properties",
+    "seeAll": "See all properties"
+  },
+  "Footer": {
+    "copyright": "Secure real estate platform"
+  },
+  "Locale": {
+    "label": "Language",
+    "fr": "Français",
+    "en": "English",
+    "zh": "中文",
+    "es": "Español",
+    "ar": "العربية"
+  }
+}

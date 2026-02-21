@@ -1,0 +1,49 @@
+{
+  "Theme": {
+    "label": "主题",
+    "dark": "深色",
+    "light": "浅色",
+    "luxury": "奢华",
+    "business": "商务",
+    "corporate": "企业",
+    "coffee": "咖啡",
+    "cyberpunk": "赛博朋克",
+    "highcontrast": "高对比度",
+    "system": "系统"
+  },
+  "Nav": {
+    "home": "Achat Location",
+    "search": "搜索",
+    "dashboard": "仪表板",
+    "favorites": "收藏",
+    "profile": "个人资料",
+    "myProperties": "我的房产",
+    "transactions": "交易",
+    "logout": "退出",
+    "login": "登录"
+  },
+  "Home": {
+    "title": "Achat Location",
+    "subtitle": "全球安全房地产平台。地块、土地、房屋、公寓、租赁和销售。",
+    "searchButton": "搜索房产",
+    "secure": "安全",
+    "secureDesc": "所有交易通过平台进行。身份在验证前受保护。",
+    "global": "全球",
+    "globalDesc": "全球房产。多国家，多语言。",
+    "allTypes": "所有类型",
+    "allTypesDesc": "土地、房屋、公寓、房间、商业、酒店。",
+    "recent": "最近房产",
+    "seeAll": "查看所有房产"
+  },
+  "Footer": {
+    "copyright": "安全房地产平台"
+  },
+  "Locale": {
+    "label": "语言",
+    "fr": "Français",
+    "en": "English",
+    "zh": "中文",
+    "es": "Español",
+    "ar": "العربية"
+  }
+}

@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Core Web Vitals - optimisations */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-feature-settings: "rlig" 1, "calt" 1;
+}
+
+/* WCAG AA - contraste suffisant */
+.contrast-high {
+  --p: 0 0% 20%;
+  --s: 0 0% 10%;
+}
+
+/* Placeholder image fallback */
+img[src=""],
+img:not([src]) {
+  opacity: 0;
+}

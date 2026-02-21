@@ -1,0 +1,49 @@
+{
+  "Theme": {
+    "label": "Tema",
+    "dark": "Oscuro",
+    "light": "Claro",
+    "luxury": "Lujo",
+    "business": "Negocios",
+    "corporate": "Corporativo",
+    "coffee": "Café",
+    "cyberpunk": "Cyberpunk",
+    "highcontrast": "Alto contraste",
+    "system": "Sistema"
+  },
+  "Nav": {
+    "home": "Achat Location",
+    "search": "Buscar",
+    "dashboard": "Panel",
+    "favorites": "Favoritos",
+    "profile": "Perfil",
+    "myProperties": "Mis propiedades",
+    "transactions": "Transacciones",
+    "logout": "Cerrar sesión",
+    "login": "Iniciar sesión"
+  },
+  "Home": {
+    "title": "Achat Location",
+    "subtitle": "Plataforma inmobiliaria mundial segura. Parcelas, terrenos, casas, apartamentos, alquileres y ventas.",
+    "searchButton": "Buscar propiedad",
+    "secure": "Seguro",
+    "secureDesc": "Todas las transacciones a través de la plataforma. Identidad protegida hasta la validación.",
+    "global": "Global",
+    "globalDesc": "Propiedades en todo el mundo. Multi-país, multi-idioma.",
+    "allTypes": "Todos los tipos",
+    "allTypesDesc": "Terreno, casa, apartamento, habitación, comercial, hotel.",
+    "recent": "Propiedades recientes",
+    "seeAll": "Ver todas las propiedades"
+  },
+  "Footer": {
+    "copyright": "Plataforma inmobiliaria segura"
+  },
+  "Locale": {
+    "label": "Idioma",
+    "fr": "Français",
+    "en": "English",
+    "zh": "中文",
+    "es": "Español",
+    "ar": "العربية"
+  }
+}

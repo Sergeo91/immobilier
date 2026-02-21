@@ -1,0 +1,49 @@
+{
+  "Theme": {
+    "label": "Thème",
+    "dark": "Sombre",
+    "light": "Clair",
+    "luxury": "Luxe",
+    "business": "Business",
+    "corporate": "Corporate",
+    "coffee": "Café",
+    "cyberpunk": "Cyberpunk",
+    "highcontrast": "Contraste élevé",
+    "system": "Système"
+  },
+  "Nav": {
+    "home": "Achat Location",
+    "search": "Recherche",
+    "dashboard": "Dashboard",
+    "favorites": "Favoris",
+    "profile": "Profil",
+    "myProperties": "Mes biens",
+    "transactions": "Transactions",
+    "logout": "Déconnexion",
+    "login": "Connexion"
+  },
+  "Home": {
+    "title": "Achat Location",
+    "subtitle": "Plateforme immobilière mondiale sécurisée. Parcelles, terrains, maisons, appartements, locations et achats.",
+    "searchButton": "Rechercher un bien",
+    "secure": "Sécurisé",
+    "secureDesc": "Transactions via la plateforme. Identité protégée jusqu'à validation.",
+    "global": "Mondial",
+    "globalDesc": "Biens partout dans le monde. Multi-pays, multi-langues.",
+    "allTypes": "Tous types",
+    "allTypesDesc": "Terrain, maison, appartement, chambre, commercial, hôtel.",
+    "recent": "Biens récents",
+    "seeAll": "Voir tous les biens"
+  },
+  "Footer": {
+    "copyright": "Plateforme immobilière sécurisée"
+  },
+  "Locale": {
+    "label": "Langue",
+    "fr": "Français",
+    "en": "English",
+    "zh": "中文",
+    "es": "Español",
+    "ar": "العربية"
+  }
+}

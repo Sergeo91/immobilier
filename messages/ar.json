@@ -1,0 +1,49 @@
+{
+  "Theme": {
+    "label": "المظهر",
+    "dark": "داكن",
+    "light": "فاتح",
+    "luxury": "فاخر",
+    "business": "أعمال",
+    "corporate": "شركات",
+    "coffee": "قهوة",
+    "cyberpunk": "سايبربانك",
+    "highcontrast": "تباين عالٍ",
+    "system": "النظام"
+  },
+  "Nav": {
+    "home": "Achat Location",
+    "search": "بحث",
+    "dashboard": "لوحة التحكم",
+    "favorites": "المفضلة",
+    "profile": "الملف الشخصي",
+    "myProperties": "عقاراتي",
+    "transactions": "المعاملات",
+    "logout": "تسجيل الخروج",
+    "login": "تسجيل الدخول"
+  },
+  "Home": {
+    "title": "Achat Location",
+    "subtitle": "منصة عقارية عالمية آمنة. قطع أراضي، عقارات، منازل، شقق، إيجارات ومبيعات.",
+    "searchButton": "بحث عن عقار",
+    "secure": "آمن",
+    "secureDesc": "جميع المعاملات عبر المنصة. الهوية محمية حتى التحقق.",
+    "global": "عالمي",
+    "globalDesc": "عقارات في جميع أنحاء العالم. متعدد الدول واللغات.",
+    "allTypes": "جميع الأنواع",
+    "allTypesDesc": "أرض، منزل، شقة، غرفة، تجاري، فندق.",
+    "recent": "أحدث العقارات",
+    "seeAll": "عرض جميع العقارات"
+  },
+  "Footer": {
+    "copyright": "منصة عقارية آمنة"
+  },
+  "Locale": {
+    "label": "اللغة",
+    "fr": "Français",
+    "en": "English",
+    "zh": "中文",
+    "es": "Español",
+    "ar": "العربية"
+  }
+}
