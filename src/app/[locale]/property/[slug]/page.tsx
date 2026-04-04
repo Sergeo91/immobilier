@@ -2,6 +2,7 @@ import { prisma } from '@/lib/prisma';
 import { notFound } from 'next/navigation';
 import { PropertyMap } from '@/components/PropertyMap';
 import { formatPrice } from '@/lib/utils';
+import { getDefaultDisplayCurrency } from '@/lib/global-settings';
 import { PROPERTY_TYPES, PROPERTY_STATUS } from '@/lib/constants';
 import { RequestButton } from './RequestButton';
 
@@ -21,6 +22,9 @@ export default async function PropertyPage({ params }: Props) {
   });
 
   if (!property) notFound();
+
+  const displayCurrency = await getDefaultDisplayCurrency();
+  const priceCurrency = property.currency || displayCurrency;
 
   const lat = property.latitude ? Number(property.latitude) : null;
   const lng = property.longitude ? Number(property.longitude) : null;
@@ -67,7 +71,7 @@ export default async function PropertyPage({ params }: Props) {
             <span className="badge badge-ghost ml-2">{PROPERTY_STATUS[property.status] || property.status}</span>
             <h1 className="text-4xl font-bold mt-2">{property.title}</h1>
             <p className="text-2xl text-primary font-bold mt-2">
-              {formatPrice(Number(property.price))}
+              {formatPrice(Number(property.price), priceCurrency)}
               {property.pricePerUnit && <span className="text-lg font-normal"> / {property.pricePerUnit}</span>}
             </p>
           </div>

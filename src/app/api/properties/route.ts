@@ -3,6 +3,7 @@ import { prisma } from '@/lib/prisma';
 
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
+  const q = searchParams.get('q')?.trim();
   const type = searchParams.get('type');
   const priceMin = searchParams.get('priceMin');
   const priceMax = searchParams.get('priceMax');
@@ -31,6 +32,13 @@ export async function GET(req: NextRequest) {
     if (priceMax) (where.price as Record<string, number>).lte = parseFloat(priceMax);
   }
   if (surfaceMin) where.surfaceArea = { gte: parseFloat(surfaceMin) };
+  if (q) {
+    // Filtre texte simple (fallback Prisma). Si ElasticSearch est configuré, on pourrait brancher dessus.
+    (where as any).OR = [
+      { title: { contains: q, mode: 'insensitive' } },
+      { description: { contains: q, mode: 'insensitive' } },
+    ];
+  }
 
   const properties = await prisma.property.findMany({
     where,
@@ -51,6 +59,7 @@ export async function GET(req: NextRequest) {
     description: p.description,
     type: p.type,
     status: p.status,
+    currency: p.currency,
     price: p.price.toString(),
     surfaceArea: p.surfaceArea?.toString(),
     isFurnished: p.isFurnished,

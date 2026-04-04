@@ -219,18 +219,25 @@ async function main() {
   }
 
   // 6. Settings par défaut
+  const existingSettings = await prisma.settings.findUnique({ where: { key: 'global' } });
+  const prevValue =
+    existingSettings?.value && typeof existingSettings.value === 'object' && !Array.isArray(existingSettings.value)
+      ? (existingSettings.value as Record<string, unknown>)
+      : {};
   await prisma.settings.upsert({
     where: { key: 'global' },
     create: {
       key: 'global',
-      value: {},
+      value: { defaultCurrency: 'XOF' },
       defaultTrialDurationDays: 14,
       isGlobalTrialEnabled: true,
       commissionPercentage: 5,
       globalTheme: 'dark',
       maintenanceMode: false,
     },
-    update: {},
+    update: {
+      value: { ...prevValue, defaultCurrency: 'XOF' },
+    },
   });
 
   console.log('✅ Seed terminé avec succès !');

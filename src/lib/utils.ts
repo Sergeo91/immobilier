@@ -3,16 +3,15 @@
  */
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
+import { formatMoneyAmount } from '@/lib/format-currency';
+import { DEFAULT_DISPLAY_CURRENCY } from '@/lib/constants';
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export function formatPrice(amount: number, currency = 'EUR'): string {
-  return new Intl.NumberFormat('fr-FR', {
-    style: 'currency',
-    currency,
-  }).format(amount);
+export function formatPrice(amount: number, currency: string = DEFAULT_DISPLAY_CURRENCY): string {
+  return formatMoneyAmount(amount, currency);
 }
 
 export function formatDate(date: Date | string, locale = 'fr'): string {

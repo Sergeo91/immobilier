@@ -19,6 +19,16 @@ export function SearchFilters({ filters, onChange }: SearchFiltersProps) {
     <div className="card bg-base-200 p-4 space-y-4">
       <h3 className="font-bold">Filtres</h3>
       <div className="form-control">
+        <label className="label">Recherche</label>
+        <input
+          type="text"
+          className="input input-bordered"
+          placeholder="Titre ou description"
+          value={filters.q || ''}
+          onChange={(e) => update('q', e.target.value)}
+        />
+      </div>
+      <div className="form-control">
         <label className="label">Type</label>
         <select
           className="select select-bordered"

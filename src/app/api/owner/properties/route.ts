@@ -27,6 +27,7 @@ export async function GET() {
       title: true,
       status: true,
       price: true,
+      currency: true,
     },
   });
 

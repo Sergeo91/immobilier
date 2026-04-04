@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { useAuth } from '@/context/AuthContext';
 import { Link } from '@/i18n/navigation';
 import { formatPrice, formatDate } from '@/lib/utils';
+import { useDisplayCurrency } from '@/context/CurrencyContext';
 import { useTranslations } from 'next-intl';
 
 interface Transaction {
@@ -11,10 +12,12 @@ interface Transaction {
   type: string;
   status: string;
   amount: string;
+  currency?: string;
   createdAt: string;
 }
 
 export default function TransactionsPage() {
+  const displayCurrency = useDisplayCurrency();
   const { user } = useAuth();
   const [transactions, setTransactions] = useState<Transaction[]>([]);
   const [loading, setLoading] = useState(true);
@@ -59,7 +62,7 @@ export default function TransactionsPage() {
                 <tr key={tr.id}>
                   <td>{formatDate(tr.createdAt)}</td>
                   <td>{tr.type}</td>
-                  <td>{formatPrice(parseFloat(tr.amount))}</td>
+                  <td>{formatPrice(parseFloat(tr.amount), tr.currency || displayCurrency)}</td>
                   <td><span className="badge">{tr.status}</span></td>
                 </tr>
               ))}

@@ -9,6 +9,7 @@ export interface Property {
   description: string;
   type: string;
   status: string;
+  currency?: string;
   price: string;
   surfaceArea?: string;
   isFurnished: boolean;

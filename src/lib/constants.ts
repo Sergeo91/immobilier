@@ -27,3 +27,8 @@ export const PROPERTY_TYPES = {
 
 export const LOCALES = ['fr', 'en', 'zh', 'es', 'ar'] as const;
 export const DEFAULT_LOCALE = 'fr';
+
+/** Devises affichables (paramètre global modifiable par super-admin). Code ISO 4217. */
+export const DISPLAY_CURRENCIES = ['XOF', 'EUR', 'USD', 'GBP', 'MAD'] as const;
+export type DisplayCurrency = (typeof DISPLAY_CURRENCIES)[number];
+export const DEFAULT_DISPLAY_CURRENCY: DisplayCurrency = 'XOF';

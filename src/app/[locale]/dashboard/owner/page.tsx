@@ -5,6 +5,8 @@ import { useAuth } from '@/context/AuthContext';
 import { Link } from '@/i18n/navigation';
 import { Plus } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import { formatPrice } from '@/lib/utils';
+import { useDisplayCurrency } from '@/context/CurrencyContext';
 
 interface Property {
   id: string;
@@ -12,9 +14,11 @@ interface Property {
   title: string;
   status: string;
   price: string;
+  currency?: string;
 }
 
 export default function OwnerDashboardPage() {
+  const displayCurrency = useDisplayCurrency();
   const { user } = useAuth();
   const [properties, setProperties] = useState<Property[]>([]);
   const [loading, setLoading] = useState(true);
@@ -75,7 +79,7 @@ export default function OwnerDashboardPage() {
                 <tr key={p.id}>
                   <td>{p.title}</td>
                   <td><span className="badge">{p.status}</span></td>
-                  <td>{p.price} €</td>
+                  <td>{formatPrice(parseFloat(p.price), p.currency || displayCurrency)}</td>
                   <td>
                     <Link href={`/property/${p.slug}`} className="btn btn-ghost btn-sm">Voir</Link>
                     <Link href={`/dashboard/owner/${p.id}/edit`} className="btn btn-ghost btn-sm">Modifier</Link>

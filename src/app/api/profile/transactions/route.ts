@@ -19,6 +19,7 @@ export async function GET() {
       type: true,
       status: true,
       amount: true,
+      currency: true,
       createdAt: true,
     },
   });

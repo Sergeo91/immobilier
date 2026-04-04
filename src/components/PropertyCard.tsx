@@ -4,6 +4,7 @@ import { Link } from '@/i18n/navigation';
 import { Heart } from 'lucide-react';
 import { useFavorites } from '@/hooks/useFavorites';
 import { formatPrice } from '@/lib/utils';
+import { useDisplayCurrency } from '@/context/CurrencyContext';
 import { PROPERTY_TYPES } from '@/lib/constants';
 import { cn } from '@/lib/utils';
 import type { Property } from '@/hooks/useProperties';
@@ -13,6 +14,7 @@ interface PropertyCardProps {
 }
 
 export function PropertyCard({ property }: PropertyCardProps) {
+  const displayCurrency = useDisplayCurrency();
   const { has, toggle } = useFavorites();
   const isFavorite = has(property.id);
   const imageUrl = property.media?.find((m) => m.type === 'IMAGE')?.url || 'https://placehold.co/400x200?text=Bien';
@@ -45,7 +47,9 @@ export function PropertyCard({ property }: PropertyCardProps) {
         </div>
         <h2 className="card-title line-clamp-1">{property.title}</h2>
         <p className="line-clamp-2 text-sm opacity-80">{property.description}</p>
-        <p className="font-bold text-primary">{formatPrice(parseFloat(property.price))}</p>
+        <p className="font-bold text-primary">
+          {formatPrice(parseFloat(property.price), property.currency || displayCurrency)}
+        </p>
         <div className="card-actions justify-end">
           <Link href={`/property/${property.slug}`} className="btn btn-primary">
             Voir
