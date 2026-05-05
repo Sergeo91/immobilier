@@ -45,13 +45,102 @@ npm run seed
 npm run dev
 ```
 
-### Commande tout-en-un
+### Commande tout-en-un (recommandée)
 
+Une fois les dépendances installées et Docker disponible :
+
+```bash
 npm run setup:dev && npm run dev
+```
 
+Équivalent “manuel” (copie `.env` seulement s’il manque, puis Docker + migrations + seed + dev) :
 
 ```bash
 npm install && ([ -f .env ] || cp .env.example .env) && docker compose up -d && npx prisma migrate dev --name init && npm run seed && npm run dev
+```
+
+Le script npm `setup:dev` fait la partie setup jusqu’au seed (sans lancer `next dev`) :
+
+```bash
+npm run setup:dev
+```
+
+## GitHub : plusieurs comptes avec `gh` (GitHub CLI)
+
+### Installation
+
+Sur macOS (Homebrew) :
+
+```bash
+brew install gh
+```
+
+### Se connecter / changer de compte
+
+Connexion interactive (navigateur ou token) :
+
+```bash
+gh auth login
+```
+
+Vérifier quel compte est actif :
+
+```bash
+gh auth status
+```
+
+Se déconnecter du compte courant sur GitHub.com :
+
+```bash
+gh auth logout -h github.com
+```
+
+Puis se reconnecter avec l’autre compte :
+
+```bash
+gh auth login
+```
+
+(Optionnel mais utile) dire à Git d’utiliser `gh` comme aide aux credentials HTTPS :
+
+```bash
+gh auth setup-git
+```
+
+Astuce : si tu pushes souvent vers **deux comptes différents**, garde des dépôts distincts (`origin` vers le compte “principal”) et ajoute un second remote pour l’autre compte.
+
+### Pousser vers le bon dépôt (cas fréquent : 403)
+
+Si tu vois `Permission denied ... denied to <userA>` alors que le repo appartient à `<userB>`, c’est presque toujours un problème de **remote** ou de **session GitHub**.
+
+Vérifier où pointe `origin` :
+
+```bash
+git remote -v
+```
+
+Basculer `origin` vers ton fork / ton user :
+
+```bash
+git remote set-url origin git@github.com:TON_USER/TON_REPO.git
+```
+
+Ou ajouter un second remote :
+
+```bash
+git remote add perso git@github.com:TON_USER/TON_REPO.git
+git push -u perso main
+```
+
+### HTTPS vs SSH (choix à prendre une fois)
+
+- **HTTPS** : `gh auth login` configure souvent Git Credential Manager ; pratique sur une machine perso.
+- **SSH** : configure une clé SSH dans GitHub ; très stable pour les pushes répétés.
+
+Tester SSH :
+
+```bash
+ssh -T git@github.com
 ```
 
 ## Comptes demo (après seed)
