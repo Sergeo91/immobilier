@@ -18,10 +18,16 @@ export async function getDefaultDisplayCurrency(): Promise<DisplayCurrency> {
     return isDisplayCurrency(cache.currency) ? cache.currency : DEFAULT_DISPLAY_CURRENCY;
   }
 
-  const row = await prisma.settings.findUnique({ where: { key: 'global' } });
-  const raw = row?.value as Record<string, unknown> | null;
-  const c = raw?.defaultCurrency;
-  const currency = isDisplayCurrency(c) ? c : DEFAULT_DISPLAY_CURRENCY;
-  cache = { currency, expires: now + TTL_MS };
-  return currency;
+  try {
+    const row = await prisma.settings.findUnique({ where: { key: 'global' } });
+    const raw = row?.value as Record<string, unknown> | null;
+    const c = raw?.defaultCurrency;
+    const currency = isDisplayCurrency(c) ? c : DEFAULT_DISPLAY_CURRENCY;
+    cache = { currency, expires: now + TTL_MS };
+    return currency;
+  } catch {
+    // Permet de démarrer l'app même si la DB n'est pas dispo (dev/local).
+    cache = { currency: DEFAULT_DISPLAY_CURRENCY, expires: now + TTL_MS };
+    return DEFAULT_DISPLAY_CURRENCY;
+  }
 }

@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "setup:dev": "npm install && ([ -f .env ] || cp .env.example .env) && docker compose up -d && npx prisma migrate dev --name init && npm run seed",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",

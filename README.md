@@ -45,6 +45,15 @@ npm run seed
 npm run dev
 ```
 
+### Commande tout-en-un
+
+npm run setup:dev && npm run dev
+
+
+```bash
+npm install && ([ -f .env ] || cp .env.example .env) && docker compose up -d && npx prisma migrate dev --name init && npm run seed && npm run dev
+```
+
 ## Comptes demo (après seed)
 
 | Rôle | Email | Mot de passe |
